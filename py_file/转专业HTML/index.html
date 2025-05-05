@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人工智能转专业展示</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <style>
+        /* 自定义样式 */
+        #hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('your_ai_image.png');
+            background-size: cover;
+            background-position: center;
+        }
+        nav a {
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #ff9900;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-gradient-to-r from-blue-600 to-cyan-500 text-white p-8">
+        <h1 class="text-4xl font-bold text-center">探索AI之旅——转专业个人展示</h1>
+        <nav class="flex justify-center space-x-8 mt-4">
+            <a href="about.html" class="text-lg"><i class="fa-solid fa-user"></i> 个人简介</a>
+            <a href="learning_path.html" class="text-lg"><i class="fa-solid fa-graduation-cap"></i> 学习路径</a>
+            <a href="projects.html" class="text-lg"><i class="fa-solid fa-project-diagram"></i> 项目实践</a>
+            <a href="skills.html" class="text-lg"><i class="fa-solid fa-wrench"></i> 技能图谱</a>
+            <a href="future_plan.html" class="text-lg"><i class="fa-solid fa-road"></i> 未来规划</a>
+        </nav>
+    </header>
+    <section id="hero" class="h-screen flex flex-col justify-center items-center text-white relative overflow-hidden">
+        <h2 class="text-6xl font-bold mb-4 animate__animated animate__fadeInDown">欢迎进入我的AI世界</h2>
+        <p class="text-xl animate__animated animate__fadeInUp">在这里，见证我对人工智能的热爱与追求</p>
+        <a href="#about" class="mt-8 bg-yellow-500 text-white py-3 px-6 rounded-full text-lg hover:bg-yellow-600 transition-colors animate__animated animate__fadeInUp delay-1s">了解更多</a>
+        <div class="absolute top-1/4 left-1/4 animate__animated animate__fadeInLeft animate__infinite animate__slow">
+            <i class="fa-solid fa-brain text-4xl text-yellow-500"></i>
+        </div>
+        <div class="absolute top-1/3 right-1/4 animate__animated animate__fadeInRight animate__infinite animate__slow">
+            <i class="fa-solid fa-robot text-4xl text-yellow-500"></i>
+        </div>
+    </section>
+    <script>
+        // 平滑滚动效果，仅针对指向当前页面内锚点的链接
+        const anchorLinks = document.querySelectorAll('a[href^="#"]');
+        anchorLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior:'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>    

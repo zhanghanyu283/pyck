@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社会实践成果展示</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <style>
+        .image-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: linear-gradient(45deg, #f8fafc, #f1f5f9);
+        }
+        .image-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .image-overlay {
+            background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.7));
+            transition: opacity 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 返回按钮 -->
+    <a href="projects.html" 
+       class="fixed top-6 left-6 bg-white px-4 py-2 rounded-full shadow-lg hover:shadow-xl transition-all
+              flex items-center gap-2 z-50">
+        <i class="fas fa-arrow-left text-blue-600"></i>
+        <span class="text-gray-700 font-medium">返回项目</span>
+    </a>
+
+    <!-- 主内容 -->
+    <div class="container mx-auto px-4 py-24 max-w-6xl">
+        <!-- 标题 -->
+        <div class="text-center mb-16">
+            <h1 class="text-4xl font-bold text-gray-800 mb-4">社会实践成果展示</h1>
+            <p class="text-gray-600 text-lg">记录成长足迹，展现责任担当</p>
+        </div>
+
+        <!-- 图片网格 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- 项目1 -->
+            <div class="image-card relative rounded-2xl overflow-hidden">
+                <div class="relative aspect-square">
+                    <img src="https://source.unsplash.com/800x600/?volunteer" 
+                         alt="社区志愿服务" 
+                         class="w-full h-full object-cover">
+                    <div class="image-overlay absolute inset-0 opacity-0 hover:opacity-100"></div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">社区志愿服务</h3>
+                    <p class="text-gray-600">组织居民文化活动，累计服务200+小时</p>
+                </div>
+            </div>
+
+            <!-- 项目2 -->
+            <div class="image-card relative rounded-2xl overflow-hidden">
+                <div class="relative aspect-square">
+                    <img src="https://source.unsplash.com/800x600/?education" 
+                         alt="乡村教育支持" 
+                         class="w-full h-full object-cover">
+                    <div class="image-overlay absolute inset-0 opacity-0 hover:opacity-100"></div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">乡村教育支持</h3>
+                    <p class="text-gray-600">为3所乡村小学提供教学资源支持</p>
+                </div>
+            </div>
+
+            <!-- 项目3 -->
+            <div class="image-card relative rounded-2xl overflow-hidden">
+                <div class="relative aspect-square">
+                    <img src="https://source.unsplash.com/800x600/?environment" 
+                         alt="环境保护行动" 
+                         class="w-full h-full object-cover">
+                    <div class="image-overlay absolute inset-0 opacity-0 hover:opacity-100"></div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">环境保护行动</h3>
+                    <p class="text-gray-600">组织5次海滩清洁活动，覆盖10公里海岸线</p>
+                </div>
+            </div>
+
+            <!-- 项目4 -->
+            <div class="image-card relative rounded-2xl overflow-hidden">
+                <div class="relative aspect-square">
+                    <img src="https://source.unsplash.com/800x600/?charity" 
+                         alt="慈善公益活动" 
+                         class="w-full h-full object-cover">
+                    <div class="image-overlay absolute inset-0 opacity-0 hover:opacity-100"></div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">慈善公益活动</h3>
+                    <p class="text-gray-600">成功筹款50万元用于医疗援助项目</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 统计信息 -->
+        <div class="mt-16 bg-white rounded-2xl p-8 shadow-lg">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="p-4">
+                    <div class="text-3xl font-bold text-blue-600">200+</div>
+                    <div class="text-gray-600">服务小时数</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-3xl font-bold text-green-600">15+</div>
+                    <div class="text-gray-600">合作机构</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-3xl font-bold text-purple-600">5000+</div>
+                    <div class="text-gray-600">受益人数</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-3xl font-bold text-red-600">10+</div>
+                    <div class="text-gray-600">媒体报道</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

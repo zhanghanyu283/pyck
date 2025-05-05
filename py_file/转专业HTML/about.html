@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 转专业展示 - 个人简介</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <style>
+        /* 自定义样式 */
+        .profile-img {
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.1);
+        }
+
+        /* 音乐控制按钮样式 */
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .music-control:hover {
+            background-color: #004499;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="bg-gradient-to-r from-blue-600 to-cyan-500 text-white p-8">
+        <h1 class="text-4xl font-bold text-center">关于我</h1>
+        <nav class="flex justify-center space-x-8 mt-4">
+            <a href="index.html" class="text-lg hover:text-yellow-500 transition-colors">首页</a>
+            <a href="learning_path.html" class="text-lg hover:text-yellow-500 transition-colors">学习路径</a>
+            <a href="projects.html" class="text-lg hover:text-yellow-500 transition-colors">项目实践</a>
+            <a href="skills.html" class="text-lg hover:text-yellow-500 transition-colors">技能图谱</a>
+            <a href="future_plan.html" class="text-lg hover:text-yellow-500 transition-colors">未来规划</a>
+        </nav>
+    </header>
+
+    <section class="content-container mx-auto max-w-6xl p-8 flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-16">
+        <img src="https://picsum.photos/200/200" alt="个人形象照" class="profile-img rounded-full w-64 h-64 mx-auto md:mx-0">
+        <div class="text-content text-center md:text-left">
+            <h2 class="text-3xl font-bold text-blue-600 mb-4">转专业动机与自我认知</h2>
+            <p class="text-lg text-gray-700 leading-relaxed">对人工智能的兴趣起源于一次偶然的机会接触到了机器学习算法，被其强大的数据分析和预测能力所吸引。从此，我开始自学相关知识，掌握了 Python 编程语言以及一些常用的机器学习库，如 Scikit-learn 和 TensorFlow。我希望通过转专业系统学习 AI 理论与技术，在这个领域深入探索，为未来的科研和产业发展贡献自己的力量。</p>
+        </div>
+    </section>
+
+    <!-- 音频元素 -->
+    <audio id="background-music" src="your_music_file.mp3"></audio>
+    <!-- 音乐控制按钮 -->
+    <button id="music-control" class="music-control">
+        <i class="fa-solid fa-play"></i>
+    </button>
+
+    <script>
+        // 平滑滚动效果
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior:'smooth'
+                    });
+                }
+            });
+        });
+
+        // 音乐控制功能
+        const music = document.getElementById('background-music');
+        const musicControl = document.getElementById('music-control');
+        musicControl.addEventListener('click', function () {
+            if (music.paused) {
+                music.play();
+                this.innerHTML = '<i class="fa-solid fa-pause"></i>';
+            } else {
+                music.pause();
+                this.innerHTML = '<i class="fa-solid fa-play"></i>';
+            }
+        });
+    </script>
+</body>
+
+</html>    

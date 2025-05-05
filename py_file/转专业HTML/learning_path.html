@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三大核心领域学习路径</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <style>
+        /* 颜色编码系统 */
+        .math-path { border-color: #ef4444; }
+        .math-path .title { background: #ef4444; }
+        
+        .modeling-path { border-color: #10b981; }
+        .modeling-path .title { background: #10b981; }
+        
+        .coding-path { border-color: #3b82f6; }
+        .coding-path .title { background: #3b82f6; }
+
+        /* 卡片悬停效果 */
+        .path-card {
+            transition: transform 0.2s;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .path-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-6">
+            <h1 class="text-3xl font-bold text-center text-gray-800">
+                <i class="fas fa-project-diagram mr-3"></i>学习路径全景图
+            </h1>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <!-- 三栏布局容器 -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- 数学基础板块 -->
+            <div class="path-card math-path bg-white rounded-lg border-l-4">
+                <div class="title text-white px-6 py-4 rounded-t-lg">
+                    <h2 class="text-xl font-semibold">
+                        <i class="fas fa-calculator mr-2"></i>数学基石
+                    </h2>
+                </div>
+                <div class="px-6 py-4 space-y-3">
+                    <div class="flex items-center">
+                        <span class="w-2 h-2 bg-red-500 rounded-full mr-2"></span>
+                        <span>高等数学：函数/极限/微积分</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="w-2 h-2 bg-red-500 rounded-full mr-2"></span>
+                        <span>线性代数：矩阵运算/向量空间</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="w-2 h-2 bg-red-500 rounded-full mr-2"></span>
+                        <span>概率统计：分布理论/假设检验</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 编程能力板块 -->
+            <div class="path-card coding-path bg-white rounded-lg border-l-4">
+                <div class="title text-white px-6 py-4 rounded-t-lg">
+                    <h2 class="text-xl font-semibold">
+                        <i class="fas fa-code mr-2"></i>编程核心
+                    </h2>
+                </div>
+                <div class="px-6 py-4 space-y-3">
+                    <div class="flex items-center">
+                        <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                        <span>Python基础语法与数据结构</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                        <span>Kaggle数据科学实战平台</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                        <span>算法设计与复杂度分析</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 建模实践板块 -->
+            <div class="path-card modeling-path bg-white rounded-lg border-l-4">
+                <div class="title text-white px-6 py-4 rounded-t-lg">
+                    <h2 class="text-xl font-semibold">
+                        <i class="fas fa-chart-line mr-2"></i>建模实践
+                    </h2>
+                </div>
+                <div class="px-6 py-4 space-y-3">
+                    <div class="flex items-center">
+                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                        <span>问题抽象与数学转化</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                        <span>MATLAB/NumPy数值计算</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                        <span>模型验证与结果可视化</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>编程实训</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+    <!-- 返回按钮 -->
+    <a href="index.html" class="fixed top-4 left-4 z-10 bg-white/90 p-2.5 rounded-full shadow-md flex items-center gap-2 text-gray-700 hover:-translate-x-1.5 hover:bg-white transition-all">
+        <i class="fas fa-chevron-left"></i>
+        <span>返回首页</span>
+    </a>
+
+    <div class="container mx-auto py-12 px-4">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">编程实训</h1>
+        <div id="fileList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        <button id="showUploadedFiles" class="mt-6 mx-auto block bg-blue-500 border border-transparent rounded-md py-2 px-4 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+            展示已上传文件
+        </button>
+    </div>
+
+    <script>
+        // 获取展示文件列表的 div 元素和展示按钮元素
+        const showUploadedFilesButton = document.getElementById('showUploadedFiles');
+        const fileListDiv = document.getElementById('fileList');
+
+        // 模拟已上传的文件信息数组
+        const uploadedFiles = [
+            { name: '年月推月的天数.ipynb', size: '2.5 KB', type: 'Python 代码' },
+            { name: 'algorithm.docx', size: '1.2 MB', type: '文档' },
+            { name: 'webpage.html', size: '3.7 KB', type: 'HTML 文件' },
+            { name: 'style.css', size: '1.1 KB', type: 'CSS 文件' },
+            { name: 'script.js', size: '1.8 KB', type: 'JavaScript 文件' }
+        ];
+
+        // 为展示按钮添加点击事件监听器
+        showUploadedFilesButton.addEventListener('click', () => {
+            // 遍历已上传文件数组
+            uploadedFiles.forEach(file => {
+                // 创建一个新的 div 元素用于展示单个文件信息
+                const fileItem = document.createElement('div');
+                // 为新创建的 div 元素添加 Tailwind CSS 类，设置样式
+                fileItem.classList.add('bg-white', 'p-6', 'rounded-lg','shadow-md', 'hover:shadow-xl', 'transition-shadow', 'duration-300');
+                // 设置 div 元素的内部 HTML 内容，展示文件名、文件大小和文件类型
+                fileItem.innerHTML = `
+                    <p class="text-lg font-medium text-gray-800 mb-2">文件名: ${file.name}</p>
+                    <p class="text-gray-600 mb-1">文件大小: ${file.size}</p>
+                    <p class="text-gray-600">文件类型: ${file.type}</p>
+                `;
+                // 将新创建的 div 元素添加到文件列表的 div 中
+                fileListDiv.appendChild(fileItem);
+            });
+            // 隐藏展示按钮，避免重复点击
+            showUploadedFilesButton.style.display = 'none';
+        });
+    </script>
+</body>
+
+</html>
+    

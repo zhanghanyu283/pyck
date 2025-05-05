@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目实践</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+        .nav-column {
+            width: 30%;
+            background: #333;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .canvas-column {
+            width: 70%;
+            position: relative;
+        }
+        canvas {
+            width: 100%;
+            height: 100%;
+        }
+        .nav-item {
+            padding: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .nav-item:hover {
+            background: #666;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=default"></script>
+</head>
+<body>
+    <div class="nav-column">
+        <h2>导航</h2>
+        <div class="nav-item" data-target="social-practice">社会实践</div>
+        <div class="nav-item" data-target="hobbies">特长爱好</div>
+        <div class="nav-item" data-target="programming">编程</div>
+        <div class="nav-item" data-target="math-modeling">数学建模</div>
+        <div class="nav-item" data-target="math-study">数学学习</div>
+    </div>
+    <div class="canvas-column">
+        <canvas id="formulaCanvas"></canvas>
+    </div>
+
+    <script>
+        // 初始化 Canvas
+        const canvas = document.getElementById('formulaCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth * 0.7;
+        canvas.height = window.innerHeight;
+
+        // 数学公式数组
+        const formulas = [
+            '\\(E=mc^2\\)',
+            '\\(F=ma\\)',
+            '\\(\\sum_{n=1}^{\\infty} \\frac{1}{n^2} = \\frac{\\pi^2}{6}\\)',
+            '\\(\\int_{a}^{b} f(x) dx\\)',
+            '\\(\\sqrt{3x + 1}\\)',
+            '\\(a^2 + b^2 = c^2\\)'
+        ];
+
+        // 公式对象
+        class Formula {
+            constructor() {
+                this.text = formulas[Math.floor(Math.random() * formulas.length)];
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 20 + 12;
+                this.speedX = (Math.random() - 0.5) * 5;
+                this.speedY = (Math.random() - 0.5) * 5;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+            }
+
+            draw() {
+                ctx.font = `${this.size}px Arial`;
+                ctx.fillStyle = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub, `\\( ${this.text} \\)`]);
+                ctx.fillText(this.text, this.x, this.y);
+            }
+        }
+
+        const formulaList = [];
+        for (let i = 0; i < 50; i++) {
+            formulaList.push(new Formula());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            formulaList.forEach(formula => {
+                formula.update();
+                formula.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        // 导航点击事件（简单示例，可扩展为实际内容切换）
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', () => {
+                console.log(`切换到 ${item.dataset.target}`);
+                // 这里可添加实际内容加载逻辑
+            });
+        });
+    </script>
+</body>
+</html>
+    
